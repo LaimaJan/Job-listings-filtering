@@ -1,4 +1,5 @@
 import Dot from '../../../../images/full-stop.png';
+import React, { useState } from 'react';
 import './JobCard.css';
 
 export default function JobCard({
@@ -15,8 +16,17 @@ export default function JobCard({
 	jobLevel,
 	onClick,
 }) {
+	const [isClicked, setIsClicked] = useState(false);
+
+	const handleClick = () => {
+		setIsClicked((prevState) => !prevState);
+	};
+
 	return (
-		<div className="job-card">
+		<div
+			className={`job-card ${isClicked ? 'clicked' : ''}`}
+			onClick={handleClick}
+		>
 			<div className="job-card-content">
 				<div className="company-image">
 					<img src={companyImage} alt={companyImage} />
@@ -31,7 +41,6 @@ export default function JobCard({
 						) : (
 							''
 						)}
-
 						{featuringBadge ? (
 							<div className="featured-listing badge">
 								<p>{featuringBadge ? 'FEATURING' : ''}</p>

@@ -26,6 +26,11 @@
 	padding: 30px 50px 30px 40px;
 }
 
+.clicked {
+	border-left: 10px solid var(--desaturated-dark-cyan);
+	padding: 30px 50px 30px 40px;
+}
+
 .job-card-content {
 	display: flex;
 	flex-direction: row;
