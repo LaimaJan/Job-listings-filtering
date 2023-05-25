@@ -1,34 +1,32 @@
-.jobs-list-container {
-	width: 100%;
+.job-listings-container {
+	max-width: 1440px;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	margin: 60px 0;
+	justify-content: center;
+	gap: 30px;
+	padding-bottom: 40px;
 }
 
 .job-card {
-	background-color: var(--light-grayish-background);
-
+	max-width: 1440px;
+	margin: 0 150px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-
-	padding: 30px 50px;
-	margin: 10px 0;
 	justify-content: space-between;
+	background-color: var(--light-cyan);
+	border-radius: var(--border-radius);
+	padding: 25px 60px;
 
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
 		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-	border-radius: 10px;
 }
 
-.job-card:hover {
-	border-left: 10px solid var(--desaturated-dark-cyan);
-	padding: 30px 50px 30px 40px;
-}
-
+.job-card:hover,
 .clicked {
 	border-left: 10px solid var(--desaturated-dark-cyan);
-	padding: 30px 50px 30px 40px;
+	padding-left: 50px;
 }
 
 .job-card-content {
@@ -44,144 +42,120 @@
 	gap: 15px;
 }
 
-.company-info,
-.job-position,
-.job-info {
+.job-description > * {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-}
-
-.company-info,
-.job-position {
 	gap: 10px;
-}
-
-.job-info {
-	gap: 10px;
-	color: var(--gray);
 }
 
 .company-name {
+	font-weight: 600;
 	color: var(--desaturated-dark-cyan);
-	font-weight: 700;
-}
-
-.company-info .badge {
-	padding: 3px 5px;
-	color: var(--light-cyan);
-	font-weight: 700;
-	border-radius: 15px;
-	display: table;
-	height: 17px;
-}
-
-.company-info .badge p {
-	height: 100%;
-	font-size: 13px;
-
-	text-align: center;
-	vertical-align: middle;
-	display: table-cell;
 }
 
 .new-listing {
 	background-color: var(--desaturated-dark-cyan);
+	color: var(--light-cyan);
+	font-weight: 600;
 }
+
 .featured-listing {
 	background-color: var(--very-dark-grayish-cyan);
+	color: var(--light-cyan);
+	font-weight: 600;
+}
+
+.badge {
+	display: flex;
+	align-items: center;
+	padding: 4px 10px;
+	border-radius: 20px;
+}
+
+.badge p {
+	font-size: 15px;
 }
 
 .job-position p {
-	font-weight: 600;
-	font-size: 23px;
+	font-weight: 700;
+	font-size: 18px;
+	color: var(--very-dark-grayish-cyan);
 }
 
 .job-position p:hover {
 	color: var(--desaturated-dark-cyan);
-	cursor: pointer;
-}
-
-.job-info .dot {
-	align-items: center;
-	filter: brightness(0) saturate(100%) invert(57%) sepia(2%) saturate(275%)
-		hue-rotate(117deg) brightness(87%) contrast(88%);
 }
 
 .job-info {
-	font-weight: 500;
+	color: var(--gray);
+}
+
+.dot img {
+	filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%)
+		hue-rotate(122deg) brightness(90%) contrast(93%);
 }
 
 .job-filters {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	align-content: center;
-	gap: 10px;
+	align-items: center;
+	gap: 20px;
 }
 
 .job-filters span {
 	background-color: var(--light-cyan-background);
-	padding: 8px 10px;
 	color: var(--desaturated-dark-cyan);
-	font-weight: 700;
-	letter-spacing: 0.5px;
-	font-size: 17px;
-	border-radius: 3px;
+	font-weight: 600;
+	padding: 8px 8px;
+	border-radius: var(--border-radius);
 }
 
 .job-filters span:hover {
-	background-color: var(--desaturated-dark-cyan);
 	color: var(--light-cyan);
-	cursor: pointer;
+	background-color: var(--desaturated-dark-cyan);
 }
 
-@media (max-width: 375px) {
-	.jobs-list-container {
-		margin: 0 auto;
+@media (width < 1270px) {
+	.job-listings-container {
+		gap: 70px;
 		margin-top: 20px;
-		align-items: center;
 	}
 
 	.job-card {
-		margin: 25px 7px;
-		padding: 0 10px;
-		max-width: 340px;
+		max-width: 320px;
+		margin: 0 auto;
 		flex-direction: column;
 		align-items: flex-start;
+		justify-content: space-between;
+
+		padding: 0 20px 0 20px;
 	}
 
-	.job-card:hover {
-		border-left: 10px solid var(--desaturated-dark-cyan);
-		padding: 0 10px 0 0;
+	.job-card:hover,
+	.active {
+		padding-left: 10px;
 	}
 
 	.job-card-content {
 		flex-direction: column;
-		justify-content: left;
-		align-items: flex-start;
+		align-items: last baseline;
+		transform: translateY(-40px);
+		gap: 0;
 	}
 
 	.company-image {
-		position: absolute;
-		transform: translateY(-25px);
-		margin-left: 20px;
-	}
-
-	.company-image img {
-		width: 60%;
+		transform: scale(0.7);
 	}
 
 	.job-description {
-		padding-top: 40px;
-		margin: 0 0 10px 20px;
+		margin-bottom: 10px;
 	}
 
 	.job-filters {
-		border-top: 1px solid var(--light-gray);
+		transform: translateY(-30px);
+		border-top: 1px solid var(--gray);
+		padding-top: 15px;
 		flex-wrap: wrap;
-		justify-content: flex-start;
-		margin: 0 20px 20px 20px;
-		padding-top: 20px;
 	}
 }

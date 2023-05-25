@@ -43,7 +43,7 @@ export default function JobCard({
 						)}
 						{featuringBadge ? (
 							<div className="featured-listing badge">
-								<p>{featuringBadge ? 'FEATURING' : ''}</p>
+								<p>{featuringBadge ? 'FEATURED' : ''}</p>
 							</div>
 						) : (
 							''

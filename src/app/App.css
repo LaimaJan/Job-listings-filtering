@@ -1,45 +1,38 @@
 .App {
-	width: 100%;
+	max-width: 1440px;
 	min-height: 100vh;
-
-	background-color: var(--dark-grayish-cyan);
 	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-family: var(--heading-font);
+	background-color: var(--light-cyan-background);
 }
 
 .heading {
-	background-color: var(--desaturated-dark-cyan);
 	max-width: 1440px;
-	width: 100%;
-	max-height: 156px;
-	position: relative;
+	margin: 0 auto;
+	background-color: var(--desaturated-dark-cyan);
+	display: flex;
 }
 
-.heading-image {
-	display: block;
+.heading img {
 	width: 100%;
-	height: 150px;
+	margin: 0 auto;
 }
 
 .search-bar-container {
-	width: 100%;
 	max-width: 1440px;
-	position: absolute;
-	transform: translateY(120px);
+	margin: 0 auto;
+	background-color: var(--light-cyan-background);
 }
 
 .search-bar {
 	background-color: var(--light-cyan);
-	min-height: 65px;
-	border-radius: 3px;
+	margin: 0 150px;
+	padding: 15px 0;
+	transform: translateY(-35px);
+	border-radius: var(--border-radius);
+
 	display: flex;
 	flex-direction: row;
-	align-items: center;
 	justify-content: space-between;
-	margin: 0 100px;
 }
 
 .search-bar ul {
@@ -50,105 +43,79 @@
 }
 
 .search-bar ul li {
-	background-color: var(--light-cyan-background);
 	display: flex;
 	flex-direction: row;
-	gap: 10px;
 	align-items: center;
+	gap: 10px;
 	justify-content: space-between;
-
-	border-radius: 3px;
-	padding-left: 10px;
+	background-color: var(--light-cyan-background);
+	border-radius: var(--border-radius);
+	max-height: 30px;
+	padding: 0 0 0 10px;
 }
 
 .search-bar ul li p {
 	color: var(--desaturated-dark-cyan);
-	font-weight: 700;
-}
-
-.delete-button {
-	border: none;
-	padding: 0;
-	background-color: var(--desaturated-dark-cyan);
-	color: var(--light-cyan);
-	font-weight: 700;
-	font-size: var(--heading-font);
-	padding: 8px 8px;
-	border-bottom-right-radius: 3px;
-	border-top-right-radius: 3px;
-}
-
-.delete-button img {
-	filter: brightness(0) saturate(100%) invert(100%) sepia(50%) saturate(423%)
-		hue-rotate(132deg) brightness(106%) contrast(96%);
-}
-
-.clear-button {
-	margin-right: 20px;
-	border: none;
-	background-color: var(--light-cyan);
-	font-size: 17px;
 	font-weight: 600;
-	color: var(--desaturated-dark-cyan);
 }
 
-.search-bar button:hover {
-	border-bottom: 1px solid var(--desaturated-dark-cyan);
-	cursor: pointer;
+.search-bar ul li button {
+	border: none;
+	background-color: var(--desaturated-dark-cyan);
+	height: 30px;
+	padding: 0 6px;
+	border-top-right-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+	display: flex;
+	align-items: center;
 }
 
-.job-listing-container {
-	box-sizing: border-box;
-	min-height: 100vh;
-	max-width: 1440px;
-	height: 100%;
-	background-color: var(--light-cyan-background);
-	padding: 0 100px;
+.search-bar ul li button:hover {
+	background-color: var(--very-dark-grayish-cyan);
+}
+
+.search-bar ul li button img {
+	filter: invert(1);
 	margin: 0 auto;
 }
 
-@media (min-width: 1440px) {
-	.search-bar-container {
-		width: 1440px;
-	}
-
-	.job-listing-container {
-		width: 1440px;
-	}
+.clear-button {
+	margin-right: 40px;
+	background-color: transparent;
+	border: none;
+	color: var(--desaturated-dark-cyan);
+	font-weight: 600;
 }
 
-@media (max-width: 375px) {
-	.App {
-		width: 375px;
-		background-color: var(--light-cyan-background);
-	}
+.clear-button:hover {
+	border-bottom: 1px solid var(--desaturated-dark-cyan);
+}
 
-	.heading-image {
-		width: 375px;
-	}
-
-	.search-bar-container {
-		position: static;
-		transform: translateY(-30px);
-		margin: 0;
-		padding: 0;
-		width: 100%;
-	}
-
+@media (width < 1270px) {
 	.search-bar {
-		margin: 0 10px 0;
+		width: 320px;
+		margin: 0 auto;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 
 	.search-bar ul {
+		flex-direction: row;
+		margin-left: 0;
 		flex-wrap: wrap;
-		align-items: center;
-		justify-content: flex-start;
-		padding: 15px 0;
 	}
 
-	.job-listing-container {
-		width: 375px;
-		padding: 0;
-		transform: translateY(-35px);
+	.clear-button {
+		margin-right: 0;
+	}
+}
+
+@media (width <= 375px) {
+	.App {
+		max-width: 375px;
+	}
+
+	.heading img {
+		max-width: 375px;
 	}
 }

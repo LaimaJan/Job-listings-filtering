@@ -3,12 +3,27 @@ import HeadingDesktop from '../../images/bg-header-desktop.svg';
 import HeadingMobile from '../../images/bg-header-mobile.svg';
 import JobCard from './components/JobCard/JobCard';
 import data from '../app/data.json';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
 	const [filterBy, setFilterBy] = useState([]);
 	const [show, setShow] = useState(false);
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 	const keys = ['role', 'level', 'languages', 'tools'];
+
+	useEffect(() => {
+		const handleResize = () => {
+			setWindowWidth(window.innerWidth);
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+
+	const headingImage = windowWidth <= 450 ? HeadingMobile : HeadingDesktop;
 
 	const handleClick = (e) => {
 		const value = e.target.innerText;
@@ -55,12 +70,7 @@ function App() {
 	return (
 		<div className="App">
 			<div className="heading">
-				<img
-					src={HeadingDesktop}
-					srcSet={`${HeadingMobile} 375w, ${HeadingDesktop} 1440w`}
-					alt="Heading"
-					className="heading-image"
-				/>
+				<img src={headingImage} alt="Heading" className="heading-image" />
 			</div>
 
 			<div
@@ -90,30 +100,30 @@ function App() {
 				</div>
 			</div>
 
-			<div className="job-listing-container">
-				<div className="jobs-list-container">
-					{filteredData.map((element) => {
-						return (
-							<JobCard
-								key={element.id}
-								companyImage={element.logo}
-								jobPosition={element.position}
-								postedAt={element.postedAt}
-								jobContract={element.contract}
-								jobLocation={element.location}
-								filter={element.languages}
-								newBadge={element.new}
-								featuringBadge={element.featured}
-								jobLanguages={element.languages}
-								jobRole={element.role}
-								jobTools={element.tools}
-								jobLevel={element.level}
-								onClick={(e) => handleClick(e)}
-							/>
-						);
-					})}
-				</div>
+			{/* <div className="job-listings-container"> */}
+			<div className="job-listings-container">
+				{filteredData.map((element) => {
+					return (
+						<JobCard
+							key={element.id}
+							companyImage={element.logo}
+							jobPosition={element.position}
+							postedAt={element.postedAt}
+							jobContract={element.contract}
+							jobLocation={element.location}
+							filter={element.languages}
+							newBadge={element.new}
+							featuringBadge={element.featured}
+							jobLanguages={element.languages}
+							jobRole={element.role}
+							jobTools={element.tools}
+							jobLevel={element.level}
+							onClick={(e) => handleClick(e)}
+						/>
+					);
+				})}
 			</div>
+			{/* </div> */}
 		</div>
 	);
 }

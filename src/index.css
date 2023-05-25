@@ -26,17 +26,23 @@
 	--light-gray: #c0bcbc;
 	--light-cyan-background: #d6f1f1;
 
-	/* Body font */
-	--font-size: 18px;
+	/* Body font and size */
+	--font-size: 16px;
 	--heading-font: 'League Spartan', sans-serif;
+
+	/* Borders */
+	--border-radius: 5px;
 }
 
-p {
+p,
+input,
+span,
+button {
 	font-size: var(--font-size);
+	font-family: var(--heading-font);
 }
 
-html,
 body {
-	margin: 0;
-	padding: 0;
+	background-color: var(--light-gray);
+	/* min-height: 100vh; */
 }
