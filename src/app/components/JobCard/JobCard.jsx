@@ -16,17 +16,8 @@ export default function JobCard({
 	jobLevel,
 	onClick,
 }) {
-	const [isClicked, setIsClicked] = useState(false);
-
-	const handleClick = () => {
-		setIsClicked((prevState) => !prevState);
-	};
-
 	return (
-		<div
-			className={`job-card ${isClicked ? 'clicked' : ''}`}
-			onClick={handleClick}
-		>
+		<div className={`job-card ${featuringBadge ? 'border' : ''}`}>
 			<div className="job-card-content">
 				<div className="company-image">
 					<img src={companyImage} alt={companyImage} />

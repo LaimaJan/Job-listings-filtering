@@ -23,8 +23,7 @@
 		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.job-card:hover,
-.clicked {
+.border {
 	border-left: 10px solid var(--desaturated-dark-cyan);
 	padding-left: 50px;
 }
